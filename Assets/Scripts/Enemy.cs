@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] ParticleSystem _impactParticles;
     [SerializeField] AudioClip _impactSound;
 
+    TankController _tankController;
     Rigidbody _rb;
 
     private void Awake()
@@ -23,11 +24,15 @@ public class Enemy : MonoBehaviour
             PlayerImpact(player);
             ImpactFeedback();
         }
+        if (_tankController.Invincible == true)
+        {
+            _tankController.Invincible = false;
+        }
     }
 
     protected virtual void PlayerImpact(Player player)
     {
-        player.DecreaseHealth(_damageAmount);
+            player.DecreaseHealth(_damageAmount);
     }
 
     private void ImpactFeedback()

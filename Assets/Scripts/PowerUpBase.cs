@@ -5,7 +5,6 @@ using UnityEngine;
 public abstract class PowerUpBase : MonoBehaviour
 {
     [SerializeField] private float _powerupDuration = 5;
-    [SerializeField] private GameObject _art = null;
     [SerializeField] private ParticleSystem _constantParticles = null;
     [SerializeField] private ParticleSystem _collectParticles = null;
     [SerializeField] private AudioClip _powerUpSfx;
@@ -52,7 +51,6 @@ public abstract class PowerUpBase : MonoBehaviour
     protected virtual void HideObject()
     {
         _collider.enabled = false;
-        if (_art != null) _art.SetActive(false);
         if (_constantParticles != null)
         {
             ParticleSystem.EmissionModule emission = _constantParticles.emission;

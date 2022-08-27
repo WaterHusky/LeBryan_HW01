@@ -5,8 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
    [SerializeField] int _maxHealth = 3;
+    [SerializeField] int _treasureCount = 0;
     int _currentHealth;
-
+    int _currentTreasure;
     TankController _tankController;
 
     private void Awake()
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _currentHealth = _maxHealth;
+        _currentTreasure = _treasureCount;
     }
 
     public void IncreaseHealth(int amount)
@@ -33,6 +35,12 @@ public class Player : MonoBehaviour
         {
             Kill();
         }
+    }
+
+    public void AddTreasure(int value)
+    {
+        _currentTreasure += value;
+        Debug.Log("Treasure: " + _currentTreasure);
     }
 
     public void Kill()

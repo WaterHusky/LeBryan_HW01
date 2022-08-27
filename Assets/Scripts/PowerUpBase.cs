@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 public abstract class PowerUpBase : MonoBehaviour
 {
     [SerializeField] private float _powerupDuration = 5;
@@ -11,7 +10,6 @@ public abstract class PowerUpBase : MonoBehaviour
     [SerializeField] private ParticleSystem _collectParticles = null;
     [SerializeField] private AudioClip _powerUpSfx;
     [SerializeField] private AudioClip _powerDownSfx;
-
     protected float Duration => _powerupDuration;
 
     private Collider _collider;

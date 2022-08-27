@@ -11,6 +11,8 @@ public class TankController : MonoBehaviour
         set => _maxSpeed = value;
     }
 
+    public bool Invincible { get; set; }
+
     [SerializeField] float _turnSpeed = 2f;
 
     Rigidbody _rb = null;

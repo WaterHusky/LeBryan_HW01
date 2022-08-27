@@ -2,17 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Invincibility : MonoBehaviour
+public class Invincibility : PowerUpBase
 {
-    // Start is called before the first frame update
-    void Start()
+    private Player _effected;
+
+    protected override bool OnCollect(GameObject other)
     {
-        
+        Player invincibleObject = other.GetComponent<Player>();
+        if (invincibleObject == null)
+        {
+            return false;
+        }
+        _effected = invincibleObject;
+
+        return true;
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void ActivatePowerup()
     {
-        
+        _effected.OnSetInvincible();
+    }
+
+    protected override void DeactivatePowerup()
+    {
+        _effected.OnRemoveInvincible();
     }
 }

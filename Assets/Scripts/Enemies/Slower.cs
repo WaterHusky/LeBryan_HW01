@@ -5,7 +5,7 @@ using UnityEngine;
 public class Slower : Enemy
 {
     
-    [SerializeField] float _speedReduction = 2;
+    [SerializeField] private float _SlowingSpeed = 0.5f;
 
     protected override void PlayerImpact(Player player)
     {
@@ -13,7 +13,7 @@ public class Slower : Enemy
         TankController controller = player.GetComponent<TankController>();
         if (controller != null)
         {
-            controller.MaxSpeed -= _speedReduction;
+            controller.MaxSpeed -= _SlowingSpeed;
         }
 
     }

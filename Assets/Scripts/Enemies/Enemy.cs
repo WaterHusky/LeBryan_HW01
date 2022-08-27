@@ -15,6 +15,15 @@ public class Enemy : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
     }
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
+    public void Move()
+    {
+
+    }
 
     private void OnCollisionEnter(Collision other)
     {
@@ -50,13 +59,4 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        Move();
-    }
-
-    public void Move()
-    {
-        
-    }
 }
